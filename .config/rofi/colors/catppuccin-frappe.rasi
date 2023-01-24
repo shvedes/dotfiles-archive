@@ -1,0 +1,11 @@
+// catppuccin frappe 
+// https://github.com/shvedes/dotfiles
+
+*{
+    background:     #303446;
+    background-alt: #303446;
+    foreground:     #c6d0f5;
+    foreground-alt: #c6d0f5;
+    urgent:         #e78284;
+    selected:       #c6d0f5;
+}

@@ -1,0 +1,140 @@
+# https://github.com/shvedes/dotfiles
+
+# ---------------------------------------------------------------- #
+
+# restart bspwm and sxhkd
+super + shift + r
+	bspc wm -r ; \
+    killall sxhkd ; \
+    sxhkd 
+
+# quit bspwm 
+super + shift + q
+	bspc quit
+
+# tiled / monocle mode
+super + m
+	bspc desktop -l next
+
+# close window 
+super + q
+    bspc node -c
+
+# focus and swap  
+super + {_,shift + }{j,k,l,semicolon}
+    bspc node --{focus,swap} {west,east,south,north}
+
+# focus the next/previous window
+super + n
+	bspc node -f next.local
+
+# fullscreen mode
+super + f
+    bspc node -t "~"fullscreen
+
+# resize windows
+super + shift + {Left,Down,Up,Right}
+  STEP=40; SELECTION={1,2,3,4}; \
+  bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+  bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+
+# toggle between floating and tiled
+super + shift + f
+    bspc node -t "~"{floating,tiled}
+
+# toggle between tiled and pseudo_tiled mode
+super + t
+    bspc node -t {pseudo_tiled,tiled}
+
+# next / prev workspaces
+ctrl + alt + {Left,Right}
+	bspc desktop -f {prev.local,next.local}
+
+# move window to container
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}'
+
+# rotate windows
+super + r
+    bspc node @parent -R 90
+
+# workspaces 
+super + {1,2,3,4,5,6,7,8,9,0}
+    bspc desktop -f {I,II,III,IV,V,VI,VII,VIII,IX,X}
+
+# swap last used workspaces
+super + Tab 
+    bspc desktop -f last
+
+# ---------------------------------------------------------------- #
+
+# open terminal emulator
+super + Return
+    alacritty
+
+# open file explorer
+super + e
+    thunar
+
+# open spotify
+ctrl + alt + s
+    bspc desktop -f '^2' ; \
+    env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+#
+# open firefox
+ctrl + alt + f
+    firefox
+
+# open application launcher
+super + a
+    sh ~/.config/rofi/launchers/launcher/launcher.sh
+
+# open clipboard menu
+super + v
+    sh ~/.config/rofi/launchers/clipboard/clipboard.sh
+
+# change wallpaper
+super + shift + w
+    feh -z --bg-fill ~/.wallpapers
+
+# clear clipboard
+super + shift + v
+    greenclip clear
+
+# lock session
+ctrl + shift + l
+    betterlockscreen -l
+
+# ---------------------------------------------------------------- #
+
+# screenshot of selected area
+super + shift + s
+    maim -u -o -s | xclip -selection clipboard -t image/png
+
+# screenshot of active window
+super + shift + a
+    maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+
+# fullscreen screenshot 
+super + shift + z
+    maim -u | xclip -selection clipboard -t image/png
+
+# ---------------------------------------------------------------- #
+
+# brighness control 
+XF86MonBrightnessUp 
+    $HOME/.local/bin/notifications/brightness up
+XF86MonBrightnessDown
+    $HOME/.local/bin/notifications/brightness down
+
+# ---------------------------------------------------------------- #
+
+# volume control
+XF86AudioRaiseVolume 
+    $HOME/.local/bin/notifications/volume up
+XF86AudioLowerVolume
+    $HOME/.local/bin/notifications/volume down
+XF86AudioMute   
+    $HOME/.local/bin/notifications/volume mute
+XF86AudioMicMute
+    $HOME/.local/bin/notifications/microphone toggle

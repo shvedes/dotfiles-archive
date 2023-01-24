@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+ICON=$HOME/.local/bin/notifications/icons/screenshot.png
+notify-send -u normal -i $ICON "Screenshot copied to clipboard"

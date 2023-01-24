@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+bspc config normal_border_color        \#5974b4
+bspc config focused_border_color       \#9fbcff
+bspc config active_border_color        \#c6a0f6

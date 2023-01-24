@@ -1,0 +1,12 @@
+#!/usr/bin/env bash 
+
+# --- Wallpapers directory --- #
+walls="$HOME/.wallpapers"
+# --- Time brtween iterations --- # 
+COOLDOWN=3600
+
+while : 
+do
+    feh -z --bg-fill $walls
+    sleep $COOLDOWN
+done

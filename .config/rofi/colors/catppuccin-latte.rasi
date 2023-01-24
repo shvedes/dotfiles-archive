@@ -1,0 +1,12 @@
+// catppuccin latte
+// https://github.com/shvedes/dotfiles
+
+*{
+    background:     #eff1f5;
+    background-alt: #eff1f5;
+    border-col:     #eff1f5;
+    selected:       #1e66f5;
+    foreground:     #4c4f69;
+    foreground-alt: #4c4f69;
+    urgent:         #d20f39;
+}

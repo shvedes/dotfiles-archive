@@ -1,0 +1,1 @@
+Some files, including udev rules, have an absolute path, so in order for these scripts to work for you, you must change the username to your own.

@@ -1,0 +1,11 @@
+// nord
+// https://github.com/shvedes/dotfiles
+
+*{
+background: #2E3440;
+background-alt: #2E3440;
+foreground: #D8DEE9;
+foreground-alt: #D8DEE9;
+urgent: #BF616A;
+selected: #D8DEE9;
+}
