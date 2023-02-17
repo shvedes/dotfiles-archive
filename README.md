@@ -33,7 +33,7 @@
 
 # **NOTE**
 
-**THIS THREAD IS NO LONGER UPDATED. THE CURRENT REPOSITORY IS IN THE [NEXT](https://github.com/shvedes/dotfiles/tree/next) BRANCH**
+**THIS THREAD IS NO LONGER UPDATED. THE CURRENT REPOSITORY [HERE](https://github.com/shvedes/dotfiles/)**
 
 # **Table of Contents**
 
